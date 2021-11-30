@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | E-commerce product page</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <img class="nav-brand" src="images/logo.svg" alt="logo-img" />
+        <!-- <h1 class="nav-brand">sneakers</h1> -->
+
+        <ul class="nav-links">
+          <li class="nav-item"><a href="">collections</a></li>
+          <li class="nav-item"><a href="">men</a></li>
+          <li class="nav-item"><a href="">women</a></li>
+          <li class="nav-item"><a href="">about</a></li>
+          <li class="nav-item"><a href="">contact</a></li>
+        </ul>
+        <div class="nav-bar-right">
+          <div class="cart">
+            <img src="images/icon-cart.svg" alt="cart-img" />
+          </div>
+          <img class="avatar" src="images/image-avatar.png" alt="avatar-img" />
+          <div class="empty-cart">
+            <div class="cart-header"><h4>Cart</h4></div>
+            <div class="empty-cart-content"><p>Your cart is empty.</p></div>
+            <div class="filled-cart-content">
+              <div>
+                <img
+                  class="cart-img"
+                  src="images/image-product-1-thumbnail.jpg"
+                  alt="img-thumbnail"
+                />
+                <div class="filled-cart-content-details">
+                  <p>Fall Limited Edition Sneakers</p>
+                  <p class="item-price"></p>
+                </div>
+                <img
+                  class="delete-button"
+                  src="images/icon-delete.svg"
+                  alt="delete-icon"
+                />
+              </div>
+              <button class="checkout">Checkout</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <hr />
+    </header>
+
+    <main>
+      <div class="left-content">
+        <div class="main-img">
+          <img src="images/image-product-1.jpg" alt="sneaker-img" />
+        </div>
+        <div class="smaller-img">
+          <div class="small active-small" id="0">
+            <img
+              src="images/image-product-1-thumbnail.jpg"
+              alt="img-1-thumbnail"
+              class="active-small-img"
+            />
+          </div>
+          <div class="small" id="1">
+            <img
+              src="images/image-product-2-thumbnail.jpg"
+              alt="img-2-thumbnail"
+            />
+          </div>
+          <div class="small" id="2">
+            <img
+              src="images/image-product-3-thumbnail.jpg"
+              alt="img-3-thumbnail"
+            />
+          </div>
+          <div class="small" id="3">
+            <img
+              src="images/image-product-4-thumbnail.jpg"
+              alt="img-4-thumbnail"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="right-content">
+        <h5>Sneaker company</h5>
+        <h1>Fall limited edition sneakers</h1>
+        <p>
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they'll withstand everything
+          the weather can offer.
+        </p>
+        <div class="price">
+          <p class="price-tag">$125.00 <span>50%</span></p>
+          <p class="slashed-price">$250.00</p>
+        </div>
+        <div class="add-item">
+          <div class="number-of-items">
+            <button class="minus-button">
+              <img src="images/icon-minus.svg" alt="minus-icon" />
+            </button>
+            <span class="amount" data-count="0">0</span>
+            <button class="add-button">
+              <img src="images/icon-plus.svg" alt="plus-icon" />
+            </button>
+          </div>
+          <button class="add-to-cart">
+            <img src="images/icon-cart.svg" alt="cart-img" /> Add to cart
+          </button>
+        </div>
+      </div>
+      <div class="modal">
+        <div class="overlay"></div>
+        <div class="modal-content">
+          <div class="close"><img src="images/icon-close.svg" alt="" /></div>
+          <div class="display-img">
+            <img src="images/image-product-1.jpg" alt="sneaker-img" />
+          </div>
+          <div id="prev-btn" class="prev arrow">
+            <img src="images/icon-previous.svg" alt="" />
+          </div>
+          <div id="next-btn" class="next arrow">
+            <img src="images/icon-next.svg" alt="" />
+          </div>
+          <div class="thumbnails">
+            <div class="thumb">
+              <img
+                src="images/image-product-1-thumbnail.jpg"
+                alt="thumbnail-img"
+                class="modal-thumbnails"
+                data-value="0"
+              />
+            </div>
+            <!-- <img src="images/image-product-1-thumbnail.jpg" alt="thumbnail-img" class="modal-thumbnails" data-value="0"> -->
+            <div class="thumb">
+              <img
+                src="images/image-product-2-thumbnail.jpg"
+                alt="thumbnail-img"
+                class="modal-thumbnails"
+                data-value="1"
+              />
+            </div>
+            <div class="thumb">
+              <img
+                src="images/image-product-3-thumbnail.jpg"
+                alt="thumbnail-img"
+                class="modal-thumbnails"
+                data-value="2"
+              />
+            </div>
+            <div class="thumb">
+              <img
+                src="images/image-product-4-thumbnail.jpg"
+                alt="thumbnail-img"
+                class="modal-thumbnails"
+                data-value="3"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
+
+  <!-- <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Mike Mobo</a>.
+</footer> -->
+</html>
