@@ -15,11 +15,12 @@ let amount = document.querySelector(".amount");
 let root = document.querySelector(":root");
 let emptyCart = document.querySelector(".empty-cart");
 let deleteItem = emptyCart.querySelector(".delete-button");
+let numberOfItems = amount.getAttribute("data-count");
 
 const images = [
   "images/image-product-1.jpg",
   "images/image-product-2.jpg",
-  "images/image-product-3.jpg",
+  "images/image-product-3.jpg", 
   "images/image-product-4.jpg",
 ];
 
@@ -124,7 +125,6 @@ function modalSelectedThumbnail(thumb, modalThumbnails) {
 }
 
 minusButton.addEventListener("click", () => {
-  let numberOfItems = amount.getAttribute("data-count");
   numberOfItems--;
   if (numberOfItems < 0) {
     numberOfItems = 0;
@@ -134,7 +134,6 @@ minusButton.addEventListener("click", () => {
 });
 
 addButton.addEventListener("click", () => {
-  let numberOfItems = amount.getAttribute("data-count");
   numberOfItems++;
   amount.setAttribute("data-count", numberOfItems);
   amount.innerHTML = numberOfItems;
@@ -151,7 +150,6 @@ cart.addEventListener("click", () => {
 });
 
 addToCart.addEventListener("click", () => {
-  const numberOfItems = amount.innerHTML;
   if(numberOfItems > 0) {
     root.style.setProperty("--pseudo-display", "inline-block");
     root.style.setProperty("--pseudo-text", `"${numberOfItems}"`);
@@ -168,7 +166,6 @@ let itemPrice = filledCartContent.querySelector(".item-price");
 let totalPrice = document.createElement("strong");
 
 const populateCart = () => {
-const numberOfItems = amount.getAttribute("data-count");
   if(numberOfItems > 0) {
   itemPrice.innerText = `$125.00 x ${numberOfItems}`;
   totalPrice.innerText = ` $${numberOfItems * 125.00}.00`;
@@ -182,10 +179,44 @@ const numberOfItems = amount.getAttribute("data-count");
   return emptyCart;
 }
 
-// deleteItem.addEventListener("click", () => {
-//   let numberOfItems = amount.getAttribute("data-count");
-//   numberOfItems--;
-//   console.log(numberOfItems);
-//   populateCart();
-//   console.log("I got clicked");
-// });
+deleteItem.addEventListener("click", () => {
+  numberOfItems--;
+  amount.innerHTML = numberOfItems;
+  if(numberOfItems > 0) {
+    root.style.setProperty("--pseudo-display", "inline-block");
+    root.style.setProperty("--pseudo-text", `"${numberOfItems}"`);
+    populateCart();
+  } else {
+    root.style.setProperty("--pseudo-display", "none");
+    populateCart();
+  }
+});
+
+const buttons = document.querySelectorAll("[data-carousel-btn]");
+
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    const offset = button.dataset.carouselBtn === "next" ? 1 : -1;
+    const slides = document.querySelector("[data-slides]");
+
+    const activeSlide = slides.querySelector("[data-active]");
+    let newIndex = [...slides.children].indexOf(activeSlide) + offset;
+        if(newIndex < 0) newIndex = slides.children.length - 1;
+        if(newIndex >= slides.children.length) newIndex = 0;
+        
+        slides.children[newIndex].dataset.active = true;
+        delete activeSlide.dataset.active;
+  });
+});
+
+const menu = document.querySelector(".menu");
+const closeMenu = document.querySelector(".close-menu");
+let activeMenu = document.querySelector(".active-menu");
+
+menu.addEventListener("click", () => {
+  activeMenu.classList.add("active");
+})
+
+closeMenu.addEventListener("click", () => {
+  activeMenu.classList.remove("active");
+})
