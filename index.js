@@ -146,6 +146,7 @@ cart.addEventListener("click", () => {
     } else {
       populateCart();
       emptyCart.style.display = "block";
+      // emptyCart.classList.toggle("focus");
     }
 });
 
@@ -175,7 +176,7 @@ const populateCart = () => {
   return emptyCart;
   } 
   filledCartContent.style.display = "none";
-  emptyCartContent.style.display = "block"; 
+  emptyCartContent.style.display = "block";
   return emptyCart;
 }
 
